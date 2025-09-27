@@ -11,7 +11,20 @@ const blogData = [
 	
 	@p
 	@tags html
-	As you can see in the previous example, you can use html tags like <code>.
+	As you can see in the previous example, you can use html tags like &lt;code>.
+	Likewise you can also include images like this:
+	<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Tabby_Kitten_on_Blue_Throw.jpg" alt="Tabby kitten on a blue blanket" width="300">
+	And bullet lists:
+	<ul>
+		<li>Unordered task</li>
+		<li>Another unordered task</li>
+	</ul>
+	Ordered lists:
+	<ol>
+		<li>First task</li>
+		<li>Second task</li>
+	</ol>
+	etc
 
 	@p
 	You don't need to include tags anywhere, they're always optional (this paragraph is an example)
