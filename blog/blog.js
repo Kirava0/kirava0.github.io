@@ -474,7 +474,7 @@ const blog = {
 				const response = await fetch(url); // Fetch the file
 				if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 				const text = await response.text(); // Read the file as text
-				results.push(text); // Process the text and store the result
+				blogData.push(text); // Process the text and store the result
 			} catch (error) {
 				console.error(`Error fetching ${url}:`, error);
 			}
