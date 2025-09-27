@@ -1,0 +1,111 @@
+body {
+	background-color: black;
+	color: silver;
+	font-family: Consolas, 'Courier New', Courier, monospace;
+	margin: 40px auto;
+	max-width: 700px;
+}
+a {
+	color: #06C;
+	text-decoration: none;
+}
+a:hover {
+	color: #08F;
+}
+code {
+	border: 2px solid #899;
+	background-color: #033;
+	color: #899;
+}
+h1, h2, h3 {
+	text-align: center;
+}
+hr {
+	border: 1px solid silver;
+	border-color: grey;
+	border-radius: 1px;
+}
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+}
+*:target {
+	background-color: #342;
+	border: 2px solid #8f0;
+	color: #8f0;
+}
+*:target p::before {
+	content: "► ";
+}
+q p {
+	display: inline;
+	font-style: italic;
+}
+ul {
+	list-style: none;
+}
+/* classes */
+.dateContainer {
+	background-color: #224;
+	border: 2px solid #66c;
+	color: #66c;
+}
+code, .dateContainer, .tagList, *:target {
+	border-radius: 15px;
+	display: block;
+	margin: 5px auto;
+	padding: 0 10px;
+	width: fit-content;
+}
+.footer {
+	text-align: center;
+}
+.linkContainer {
+	background-color: #244;
+	border: 2px solid #8ff;
+	border-radius: 15px;
+	padding-left: 0.5em;
+}
+.list2 {
+	list-style: disc;
+}
+.shorterHr {
+	border-color: #444;
+	width: 80%;
+}
+.tag {
+	color: #8ff;
+	cursor: pointer;
+	margin-right: 0.5em;
+	user-select: none;
+}
+.tag:hover {
+	opacity: 0.5;
+}
+.tag:active {
+	opacity: 0.25;
+}
+.tag.greyedOut {
+	color: silver;
+	cursor: auto;
+	opacity: 1;
+}
+.tagList {
+	background-color: #423;
+	border: 2px solid #f8c;
+	color: #f8c;
+	max-width: 80%;
+	text-align: center;
+}
+.tagList > .tag:nth-child(1) {
+	color: #f8c;
+}
+/* mobile */
+@media only screen and (max-width: 750px) {
+	body {
+		font-size: 112.5%;
+		padding: 0 30px;
+	}
+}
