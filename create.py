@@ -11,6 +11,8 @@ for file in os.listdir(POST_DIRECTORY):
 	if file.endswith(".txt"):
 		paths.append(os.path.join(POST_DIRECTORY, file))
 
+paths.sort()
+
 blogdata = "const blogData = [\n"
 
 for path in paths:

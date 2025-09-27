@@ -1,7 +1,4 @@
 const blogData = [
-`@title Test
-@date 1674670610190
-Press "previous" to see the instruction post OwO`,
 `@title I made a blog!
 @date 1674659869714
 @tags meta dev
@@ -40,5 +37,8 @@ available through the console via <code>blog.corpus</code>
 
 @p
 I think that covers everything?`,
+`@title Test
+@date 1674670610190
+Press "previous" to see the instruction post OwO2`,
 
 ];
