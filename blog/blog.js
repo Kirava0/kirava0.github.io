@@ -1,6 +1,12 @@
 /* exported blog */
 /* global blogData */
 
+// Array of text file URLs
+const fileUrls = [
+	'blogpost1.txt',
+	'blogpost2.txt',
+];
+
 /**
  * Converts string to title case. identical to str.title in python.
  * @param {string} s
@@ -460,7 +466,20 @@ const blog = {
 	goto(i){
 		this.set(Blogpost.blogposts[this.current = i].elem);
 	},
-	init(){
+	async init(){
+		const blogData = [];
+
+		for (const url of fileUrls) {
+			try {
+				const response = await fetch(url); // Fetch the file
+				if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+				const text = await response.text(); // Read the file as text
+				results.push(text); // Process the text and store the result
+			} catch (error) {
+				console.error(`Error fetching ${url}:`, error);
+			}
+		}
+		// todo
 		blogData.forEach(Blogpost.parse);
 		const latest = Blogpost.latest;
 		this.current = latest.id;
