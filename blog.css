@@ -110,6 +110,14 @@ code, .dateContainer, .tagList, *:target {
 	}
 }
 /* sidebar */
+#sidebar_header {
+	display: inline-block;
+	text-transform: uppercase;
+}
+.sidebar_post {
+	border: 1px solid #666;
+	border-radius: 1vw;
+}
 .sidebar_post .dateContainer {
 	background-color: #224;
 	border: none;

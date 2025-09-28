@@ -557,7 +557,8 @@ const blog = {
 			const div = document.createElement('div');
 			// sidebar header
 			const h = document.createElement('h3');
-			h.innerHTML = "Recent Posts:<br>";
+			h.innerHTML = "Latest Posts<br>";
+			h.id = 'sidebar_header';
 			div.appendChild(h);
 			// get last 3 posts for sidebar
 			Blogpost.blogposts.slice(-this.n_articles)
