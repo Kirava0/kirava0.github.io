@@ -203,9 +203,9 @@ class Blogpost {
 		dateContainer.appendChild(date);
 		div.appendChild(dateContainer);
 		// "read more"
-		const readmore = document.createElement('span');
-		readmore.innerHTML = "Read more &rarr;";
-		div.appendChild(readmore);
+		// const readmore = document.createElement('span');
+		// readmore.innerHTML = "Read more &rarr;";
+		// div.appendChild(readmore);
 		// make entire div a button
 		div.onclick = () => blog.goto(this.id);
 		return div;
