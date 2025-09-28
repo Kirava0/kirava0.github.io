@@ -3,7 +3,7 @@ body {
 	color: silver;
 	font-family: Consolas, 'Courier New', Courier, monospace;
 	margin: 40px auto;
-	max-width: 700px;
+	max-width: 1200px;
 }
 a {
 	color: #06C;
@@ -60,7 +60,9 @@ code, .dateContainer, .tagList, *:target {
 	width: fit-content;
 }
 .footer {
+	clear: both; /* css voodoo to make it go below the other two divs */
 	text-align: center;
+	width: 100%;
 }
 .linkContainer {
 	background-color: #244;
@@ -108,4 +110,17 @@ code, .dateContainer, .tagList, *:target {
 		font-size: 112.5%;
 		padding: 0 30px;
 	}
+}
+/* sidebar */
+#main {
+	float: left;
+	width: 75%;
+}
+#sidebar_container {
+	float: left;
+	width: 25%;
+}
+.sidebar_post:hover {
+	cursor: pointer;
+	opacity: 50%;
 }

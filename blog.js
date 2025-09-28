@@ -25,7 +25,7 @@ function formatDate(d){
 function link(o, hover='', titleOverride=''){
 	const e = document.createElement('span');
 	e.classList.add('tag');
-	e.onclick = () => blog.set(o.elem);
+	e.onclick = () => blog.goto(o.id);
 	e.innerHTML = titleOverride || o.title;
 	e.title = hover;
 	return e;
@@ -186,6 +186,29 @@ class Blogpost {
 			newP();
 		// done
 		return new Blogpost(o.title, o.date, o.tags, o.sections);
+	}
+	/** for the sidebar */
+	get sidebar_post(){
+		const div = document.createElement('div');
+		div.classList.add('sidebar_post');
+		const h = document.createElement('h3');
+		h.appendChild(document.createTextNode(this.title));
+		div.appendChild(h);
+		// date
+		const dateContainer = document.createElement('div');
+		dateContainer.classList.add('dateContainer');
+		const date = document.createElement('time');
+		date.dateTime = formatDate(this.date);
+		date.innerHTML = this.date.toLocaleDateString('en-UK', { year: 'numeric', month: 'short', day: 'numeric' });
+		dateContainer.appendChild(date);
+		div.appendChild(dateContainer);
+		// "read more"
+		const readmore = document.createElement('span');
+		readmore.innerHTML = "Read more &rarr;";
+		div.appendChild(readmore);
+		// make entire div a button
+		div.onclick = () => blog.goto(this.id);
+		return div;
 	}
 }
 /** @type {Blogpost[]} */
@@ -478,6 +501,8 @@ const blog = {
 			this.goto(+url[0].replace('?i=', ''));
 		else
 			this.set(latest.elem);
+		// sidebar
+		this.sidebar.init();
 	},
 	get max(){
 		return Blogpost.blogposts.length-1;
@@ -508,6 +533,39 @@ const blog = {
 			this.button.next.classList.add('greyedOut');
 		else
 			this.button.next.classList.remove('greyedOut');
+	},
+	sidebar: {
+		// holds the element once initialized
+		elem: undefined,
+		// last 3 articles
+		n_articles: 3,
+		init(){
+			// "if the element exists, add the sidebar to it"
+			const sidebar_container = document.getElementById('sidebar_container');
+			if (sidebar_container === null) {
+				console.warn('no element exists with sidebar_container id');
+				return;
+			}
+			if (this.elem){
+				console.warn('sidebar already initialized');
+				return;
+			}
+			sidebar_container.appendChild(this.sidebar);
+			this.elem = sidebar_container;
+		},
+		get sidebar(){
+			const div = document.createElement('div');
+			// sidebar header
+			const h = document.createElement('h3');
+			h.innerHTML = "Recent Posts:<br>";
+			div.appendChild(h);
+			// get last 3 posts for sidebar
+			Blogpost.blogposts.slice(-this.n_articles)
+				.reverse()
+				.map(bp => bp.sidebar_post)
+				.forEach(bp => div.appendChild(bp));
+			return div;
+		}
 	},
 	get timestamp(){
 		return +new Date();
