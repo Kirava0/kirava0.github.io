@@ -110,6 +110,10 @@ code, .dateContainer, .tagList, *:target {
 		font-size: 112.5%;
 		padding: 0 30px;
 	}
+	/* doesn't look good on mobile :( */
+	#sidebar_container {
+		display: none;
+	}
 }
 /* sidebar */
 #main {
