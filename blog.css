@@ -110,6 +110,11 @@ code, .dateContainer, .tagList, *:target {
 	}
 }
 /* sidebar */
+.sidebar_post .dateContainer {
+	background-color: #224;
+	border: none;
+	color: silver;
+}
 .sidebar_post:hover {
 	cursor: pointer;
 	opacity: 50%;
